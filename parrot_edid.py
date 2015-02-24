@@ -17,7 +17,7 @@ def main():
     data_block = tree.find('Edid/DataBlock')
     extension_block = tree.find('Edid/ExtensionBlock')
 
-    out = open(args.output_path, 'w')
+    out = open(args.output_path, 'wb')
     for block in [data_block, extension_block]:
         for i in range(0 , len(block.text), 2):
             byte = binascii.a2b_hex(block.text[i:i+2])
